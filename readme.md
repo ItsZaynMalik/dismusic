@@ -40,7 +40,7 @@ client.on('messageCreate', async (message) => {
         const existsQueue = await player.existsQueue(message.guild)
         if(existsQueue) {
             const queue = await player.getQueue(message.guild)
-            message.reply('<a:host_loading:1022886955266080789> Adding track(s) ' + res[0].name)
+            message.reply('Adding track(s) ' + res[0].name)
             queue.addTrack(res[0])
         } else {
             const queue = await player.createQueue(message.guild, {
@@ -51,7 +51,7 @@ client.on('messageCreate', async (message) => {
             })
             await queue.connectTo(message.member.voice.channel)
             queue.play(res[0])
-            message.reply('<a:host_loading:1022886955266080789> Adding track(s) ' + res[0].name)
+            message.reply('Adding track(s) ' + res[0].name)
         }
     }
     if(command === 'skip') {
